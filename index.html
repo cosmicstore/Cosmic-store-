@@ -1,78 +1,179 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cosmic Store | Beauty & Skincare</title>
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#fffaf7;color:#29201f}
-header{background:#241b25;color:white;padding:22px 18px;text-align:center}
-.logo{font-size:29px;font-weight:800;letter-spacing:3px}
-header p{color:#e8c8d5;margin-bottom:0}
-nav{padding:14px;text-align:center;background:#f2e5e8}
-nav a{color:#382432;text-decoration:none;margin:0 10px;font-size:14px}
-.hero{padding:55px 22px;text-align:center;background:linear-gradient(135deg,#f5dce3,#fff2e8)}
-.hero h1{font-size:38px;margin:0 0 12px}
-.hero p{line-height:1.7}
-.btn{display:inline-block;background:#39243a;color:white;padding:13px 22px;border-radius:5px;text-decoration:none;margin-top:12px}
-section{padding:32px 17px}
-h2{text-align:center}
-.products{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;max-width:850px;margin:auto}
-.card{background:white;border:1px solid #eee0e3;border-radius:12px;padding:12px;text-align:center}
-.pic{height:115px;border-radius:8px;background:#f5e7e8;display:flex;align-items:center;justify-content:center;font-size:48px}
-.card h3{font-size:16px}
-.price{font-weight:bold;color:#8b4665}
-.card button{background:#38243a;color:white;border:0;border-radius:5px;padding:10px;width:100%;margin-top:7px}
-.note{text-align:center;color:#76656c;line-height:1.7}
-footer{text-align:center;background:#241b25;color:white;padding:25px 12px}
-@media(min-width:600px){.hero{padding:80px 20px}.hero h1{font-size:52px}.products{grid-template-columns:repeat(3,minmax(0,1fr))}}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8e8ed">
+  <title>COSMIC STORE | Beauty & Skincare</title>
+  <meta name="description" content="Discover beauty and skincare favourites at COSMIC STORE. Order easily through WhatsApp.">
+  <style>
+    :root{--pink:#c94f78;--pink-dark:#9f3158;--cream:#fffaf8;--ink:#29232a;--muted:#756b72;--line:#f0dce3;--white:#fff}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55}
+    a{color:inherit;text-decoration:none}
+    .announcement{background:#3a2732;color:white;text-align:center;padding:8px 12px;font-size:13px;letter-spacing:.3px}
+    header{position:sticky;top:0;z-index:10;background:#fffaf8ee;backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav{max-width:1150px;margin:auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:15px}
+    .brand{font-weight:900;letter-spacing:2px;font-size:22px;color:var(--pink-dark)}
+    .brand small{display:block;font-size:10px;letter-spacing:3px;font-weight:600;color:var(--muted)}
+    .navlinks{display:flex;gap:22px;font-size:14px;color:#51464d}
+    .navlinks a:hover{color:var(--pink-dark)}
+    .btn{display:inline-flex;justify-content:center;align-items:center;gap:8px;background:var(--pink);color:white;border:0;border-radius:999px;padding:12px 19px;font-weight:700;cursor:pointer;transition:.2s}
+    .btn:hover{background:var(--pink-dark);transform:translateY(-1px)}
+    .btn-outline{background:transparent;color:var(--pink-dark);border:1px solid var(--pink)}
+    .hero{max-width:1150px;margin:auto;padding:54px 20px 46px;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:35px}
+    .eyebrow{text-transform:uppercase;letter-spacing:3px;font-size:11px;font-weight:800;color:var(--pink-dark)}
+    h1{font-size:clamp(38px,5vw,64px);line-height:1.04;letter-spacing:-2px;margin:14px 0 18px}
+    h1 span{color:var(--pink)}
+    .hero p{max-width:480px;color:var(--muted);font-size:17px;margin-bottom:25px}
+    .hero-image{height:420px;border-radius:28px;overflow:hidden;background:#f3dce5;position:relative}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+    .hero-note{position:absolute;bottom:18px;left:18px;background:#fffaf8ed;border-radius:16px;padding:12px 16px;font-size:13px;font-weight:700}
+    .trust{display:flex;gap:18px;flex-wrap:wrap;margin-top:25px;color:var(--muted);font-size:12px}
+    .trust span:before{content:"✓";color:var(--pink);font-weight:900;margin-right:6px}
+    section{scroll-margin-top:85px}
+    .section{max-width:1150px;margin:auto;padding:35px 20px 58px}
+    .section-head{text-align:center;margin-bottom:26px}
+    .section-head h2{font-size:clamp(27px,3vw,38px);margin:7px 0}
+    .section-head p{color:var(--muted);margin:0}
+    .filters{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:24px 0}
+    .filter{border:1px solid var(--line);background:white;border-radius:99px;padding:9px 16px;cursor:pointer;color:#554650}
+    .filter.active,.filter:hover{background:var(--pink-dark);border-color:var(--pink-dark);color:white}
+    .products{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+    .product{background:white;border:1px solid var(--line);border-radius:19px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 5px 22px #57203b08}
+    .product-image{height:220px;background:#f7e8ed;overflow:hidden;position:relative}
+    .product-image img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s}
+    .product:hover .product-image img{transform:scale(1.04)}
+    .tag{position:absolute;top:12px;left:12px;background:#fffaf8ed;color:var(--pink-dark);border-radius:99px;padding:5px 9px;font-size:10px;font-weight:800}
+    .product-info{padding:15px;display:flex;flex-direction:column;flex:1}
+    .category{font-size:10px;letter-spacing:1.3px;text-transform:uppercase;color:var(--pink-dark);font-weight:800}
+    .product h3{font-size:16px;margin:5px 0 4px}
+    .product p{font-size:12px;color:var(--muted);margin:0 0 13px;flex:1}
+    .price-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+    .price{font-size:18px;font-weight:900}
+    .small-order{font-size:12px;padding:10px 12px;width:100%}
+    .about-wrap{background:#f7e8ed}
+    .about{max-width:1150px;margin:auto;padding:45px 20px;display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+    .about h2{font-size:34px;line-height:1.15;margin:8px 0 15px}
+    .about p{color:#655660}
+    .about-card{background:#fffaf8;border-radius:22px;padding:27px}
+    .about-card h3{margin-top:0}
+    .about-card p{margin-bottom:0}
+    .contact{max-width:850px;margin:auto;text-align:center;padding:55px 20px}
+    .contact h2{font-size:35px;margin:8px 0}
+    .contact p{color:var(--muted)}
+    footer{background:#30232b;color:#f8eaf0;padding:26px 20px;text-align:center;font-size:12px}
+    footer strong{letter-spacing:2px}
+    .whatsapp-float{position:fixed;right:17px;bottom:17px;z-index:20;box-shadow:0 8px 24px #0002}
+    .notice{font-size:12px;color:var(--muted);text-align:center;margin-top:18px}
+    @media(max-width:900px){.products{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr;padding-top:35px}.hero-image{height:330px}.about{grid-template-columns:1fr}.navlinks{gap:12px}.navlinks a:nth-child(2){display:none}}
+    @media(max-width:520px){.nav{padding:12px 14px}.brand{font-size:18px}.navlinks{font-size:12px;gap:10px}.nav .btn{padding:10px 12px;font-size:12px}.hero{padding:30px 16px}.hero-image{height:280px}.section{padding:28px 14px 42px}.products{gap:10px}.product-image{height:165px}.product-info{padding:11px}.product h3{font-size:14px}.price{font-size:16px}.small-order{font-size:11px;padding:9px 8px}.about{padding:35px 16px}.contact h2{font-size:29px}}
+  </style>
 </head>
 <body>
-<header>
-<div class="logo">COSMIC STORE</div>
-<p>Your Beauty, Your Universe ✨</p>
-</header>
-<nav>
-<a href="#home">Home</a>
-<a href="#shop">Shop</a>
-<a href="#about">About</a>
-<a href="#contact">Contact</a>
-</nav>
-<div class="hero" id="home">
-<p>WELCOME TO COSMIC STORE</p>
-<h1>Discover Your Glow</h1>
-<p>Explore beauty essentials and skincare favourites,<br>all in one beautiful place.</p>
-<a class="btn" href="#shop">Explore Collection</a>
-</div>
-<section id="shop">
-<h2>Our Beauty Collection</h2>
-<p class="note">Contact us for product availability and prices.</p>
-<div class="products">
-<div class="card"><div class="pic">🧴</div><h3>Skincare Essentials</h3><p class="price">Price on request</p><button onclick="order('Skincare Essentials')">Order on WhatsApp</button></div>
-<div class="card"><div class="pic">💄</div><h3>Beauty & Makeup</h3><p class="price">Price on request</p><button onclick="order('Beauty & Makeup')">Order on WhatsApp</button></div>
-<div class="card"><div class="pic">🧴</div><h3>Face Care</h3><p class="price">Price on request</p><button onclick="order('Face Care')">Order on WhatsApp</button></div>
-<div class="card"><div class="pic">✨</div><h3>Beauty Accessories</h3><p class="price">Price on request</p><button onclick="order('Beauty Accessories')">Order on WhatsApp</button></div>
-</div>
-</section>
-<section id="about">
-<h2>About Cosmic Store</h2>
-<p class="note">Our goal is to make discovering beauty products simple and convenient. Message us to ask about products, prices and delivery.</p>
-</section>
-<section id="contact">
-<h2>Let's Connect</h2>
-<p class="note">Have a question or want to order? Contact us directly on WhatsApp.</p>
-<div style="text-align:center"><a class="btn" href="https://wa.me/92XXXXXXXXXX">Chat on WhatsApp</a></div>
-<p class="note">Replace the sample WhatsApp number with your business number before publishing.</p>
-</section>
-<footer>© 2026 Cosmic Store · Beauty • Skincare • Makeup</footer>
-<script>
-function order(product){
-window.open('https://wa.me/92XXXXXXXXXX?text='+encodeURIComponent('Hi Cosmic Store, I am interested in '+product+'. Please share price and availability.'),'_blank');
-}
-</script>
+  <div class="announcement">A little glow goes a long way ✨ &nbsp; | &nbsp; Order easily on WhatsApp</div>
+  <header>
+    <nav class="nav">
+      <a class="brand" href="#home">COSMIC STORE<small>BEAUTY • SKINCARE • YOU</small></a>
+      <div class="navlinks"><a href="#home">Home</a><a href="#products">Shop</a><a href="#about">About</a><a href="#contact">Contact</a></div>
+      <a class="btn" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20want%20to%20know%20about%20your%20products." target="_blank" rel="noopener">WhatsApp Order</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div>
+        <div class="eyebrow">Your beauty, your way</div>
+        <h1>Discover Your <span>Glow.</span></h1>
+        <p>Explore beauty and skincare favourites picked to make your everyday routine feel a little more special.</p>
+        <a class="btn" href="#products">Explore Products&nbsp; ↓</a>
+        <a class="btn btn-outline" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20please%20share%20your%20product%20catalogue." target="_blank" rel="noopener">Ask on WhatsApp</a>
+        <div class="trust"><span>Easy WhatsApp ordering</span><span>Beauty essentials</span><span>Friendly service</span></div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=1000&q=85" alt="Beauty and makeup products" onerror="this.style.display='none'">
+        <div class="hero-note">Your everyday beauty edit ✨</div>
+      </div>
+    </section>
+
+    <section class="section" id="products">
+      <div class="section-head">
+        <div class="eyebrow">The store edit</div>
+        <h2>Shop Our Favourites</h2>
+        <p>Choose a product to ask about availability and place your order on WhatsApp.</p>
+      </div>
+      <div class="filters">
+        <button class="filter active" data-filter="all">All Products</button>
+        <button class="filter" data-filter="skincare">Skincare</button>
+        <button class="filter" data-filter="makeup">Makeup</button>
+        <button class="filter" data-filter="care">Beauty Care</button>
+      </div>
+      <div class="products">
+        <article class="product" data-category="skincare">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=700&q=80" alt="Skincare serum" loading="lazy"><span class="tag">SKINCARE</span></div>
+          <div class="product-info"><div class="category">Skincare</div><h3>Glow Serum</h3><p>A skincare essential for your daily routine.</p><div class="price-row"><span class="price">Rs. 1,200</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Glow%20Serum.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="makeup">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?auto=format&fit=crop&w=700&q=80" alt="Lipstick makeup" loading="lazy"><span class="tag">MAKEUP</span></div>
+          <div class="product-info"><div class="category">Makeup</div><h3>Classic Lip Colour</h3><p>A lovely finishing touch for your look.</p><div class="price-row"><span class="price">Rs. 850</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Classic%20Lip%20Colour.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="skincare">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1556229010-6c3f2c9ca5f8?auto=format&fit=crop&w=700&q=80" alt="Moisturiser and skincare" loading="lazy"><span class="tag">SKINCARE</span></div>
+          <div class="product-info"><div class="category">Skincare</div><h3>Daily Moisturiser</h3><p>A simple step for a comfortable skin-care routine.</p><div class="price-row"><span class="price">Rs. 950</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Daily%20Moisturiser.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="makeup">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=700&q=80" alt="Makeup brushes and cosmetics" loading="lazy"><span class="tag">MAKEUP</span></div>
+          <div class="product-info"><div class="category">Makeup</div><h3>Beauty Brush Set</h3><p>Useful tools for your makeup collection.</p><div class="price-row"><span class="price">Rs. 1,500</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Beauty%20Brush%20Set.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="care">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1601049541289-9b1b7bbbfe19?auto=format&fit=crop&w=700&q=80" alt="Beauty care products" loading="lazy"><span class="tag">BEAUTY CARE</span></div>
+          <div class="product-info"><div class="category">Beauty Care</div><h3>Self-Care Essentials</h3><p>Little extras to complete your beauty shelf.</p><div class="price-row"><span class="price">Rs. 700</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Self-Care%20Essentials.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="skincare">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1570194065650-d99fb4bedf0a?auto=format&fit=crop&w=700&q=80" alt="Face care cream" loading="lazy"><span class="tag">SKINCARE</span></div>
+          <div class="product-info"><div class="category">Skincare</div><h3>Face Care Cream</h3><p>An everyday beauty-counter favourite.</p><div class="price-row"><span class="price">Rs. 1,000</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Face%20Care%20Cream.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="makeup">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1599733589046-10c005739ef9?auto=format&fit=crop&w=700&q=80" alt="Compact makeup palette" loading="lazy"><span class="tag">MAKEUP</span></div>
+          <div class="product-info"><div class="category">Makeup</div><h3>Everyday Makeup</h3><p>Simple beauty picks for your collection.</p><div class="price-row"><span class="price">Rs. 1,350</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Everyday%20Makeup.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+        <article class="product" data-category="care">
+          <div class="product-image"><img src="https://images.unsplash.com/photo-1608571423902-eed4a5ad8108?auto=format&fit=crop&w=700&q=80" alt="Personal care products" loading="lazy"><span class="tag">BEAUTY CARE</span></div>
+          <div class="product-info"><div class="category">Beauty Care</div><h3>Beauty Gift Set</h3><p>A thoughtful pick for someone special.</p><div class="price-row"><span class="price">Rs. 2,000</span></div><a class="btn small-order" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20am%20interested%20in%20Beauty%20Gift%20Set.%20Please%20confirm%20price%20and%20availability." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+        </article>
+      </div>
+      <p class="notice">Sample products and prices are shown for layout preview. Please update them to match your real stock before accepting orders.</p>
+    </section>
+
+    <div class="about-wrap" id="about">
+      <section class="about">
+        <div><div class="eyebrow">A little about us</div><h2>Beauty essentials, made easy.</h2><p>Welcome to COSMIC STORE — your online spot for beauty, makeup and skincare finds. Browse the collection and message us on WhatsApp to confirm current stock, prices and delivery details.</p><a class="btn" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20know%20more%20about%20COSMIC%20STORE." target="_blank" rel="noopener">Chat with us</a></div>
+        <div class="about-card"><h3>✨ Shop with confidence</h3><p>We confirm product availability and final order details directly with you before you place an order. For skincare products, always check the ingredients and suitability for your skin.</p></div>
+      </section>
+    </div>
+
+    <section class="contact" id="contact">
+      <div class="eyebrow">We’re here to help</div><h2>Let’s talk beauty.</h2>
+      <p>Questions about a product, price or delivery? Send us a WhatsApp message.</p>
+      <a class="btn" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20have%20a%20question%20about%20COSMIC%20STORE." target="_blank" rel="noopener">Message COSMIC STORE</a>
+    </section>
+  </main>
+  <a class="btn whatsapp-float" href="https://wa.me/923093019185?text=Assalam-o-Alaikum%2C%20I%20want%20to%20shop%20at%20COSMIC%20STORE." target="_blank" rel="noopener" aria-label="Chat on WhatsApp">WhatsApp ↗</a>
+  <footer><strong>COSMIC STORE</strong><br>Beauty • Skincare • Makeup<br><span>© 2026 COSMIC STORE. All rights reserved.</span></footer>
+
+  <script>
+    const filterButtons = document.querySelectorAll('.filter');
+    const products = document.querySelectorAll('.product');
+    filterButtons.forEach(button => button.addEventListener('click', () => {
+      filterButtons.forEach(b => b.classList.remove('active'));
+      button.classList.add('active');
+      const filter = button.dataset.filter;
+      products.forEach(product => {
+        product.style.display = filter === 'all' || product.dataset.category === filter ? 'flex' : 'none';
+      });
+    }));
+  </script>
 </body>
-  </html>
+                                                                                                            </html>
   
